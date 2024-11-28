@@ -17,6 +17,7 @@ contract SuperfluidBoilerplate {
     }
 
     /// @notice Deploys a new mock Super Token for testing purposes
+    /// and mints 1000000000000000000000000 tokens to the contract
     /// @dev Creates a new PureSuperTokenProxy and initializes it with basic parameters
 
     function deployMockSuperToken() public {
