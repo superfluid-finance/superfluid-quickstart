@@ -1,21 +1,24 @@
-## Foundry
+## Superfluid Quickstart : A simple vesting contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**Superfluid is a token-centric infrastructure protocol for EVM-compatible blockchains, enabling developers to create one-to-one and many-to-manymoney streams (a second-by-second token distribution).**
 
-Foundry consists of:
-
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
+This project uses [Foundry](https://book.getfoundry.sh/) to build and test a simple vesting contract.
 
 ## Usage
 
+Before make sure you have [Foundry](https://book.getfoundry.sh/) installed.
+
+### Install
+
+Installing the dependencies (superfluid-contracts and openzeppelin-contracts)
+
+```shell
+$ forge install
+```
+
 ### Build
+
+Building the project
 
 ```shell
 $ forge build
@@ -23,44 +26,23 @@ $ forge build
 
 ### Test
 
+Running the tests
+
 ```shell
 $ forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
 ### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
+Deploying the contract to a live network
 
 ```shell
-$ cast <subcommand>
+$ forge create --rpc-url <your_rpc_url> \
+    --constructor-args <host_address>\
+    --private-key <your_private_key> \
+    --etherscan-api-key <your_etherscan_api_key> \
+    --verify \
+    src/SuperfluidVesting.sol:SuperfluidVesting
 ```
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+*note: you can find the host address in [The Superfluid Explorer](https://explorer.superfluid.finance/)*
